@@ -1,0 +1,213 @@
+:root {
+  --bg1: #120458;
+  --bg2: #8e0b8a;
+  --card-bg: rgba(255, 255, 255, 0.12);
+  --text: #f7efff;
+  --highlight: #ffd3f4;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  min-height: 100vh;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: var(--text);
+  background: radial-gradient(circle at top, rgba(255, 255, 255, 0.12), transparent 25%),
+    linear-gradient(135deg, var(--bg1), var(--bg2));
+  overflow-x: hidden;
+}
+
+.birthday-page {
+  padding: 2.5rem 1.5rem 3rem;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.birthday-hero {
+  text-align: center;
+  padding: 3rem 1.5rem;
+  border-radius: 32px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  backdrop-filter: blur(20px);
+  position: relative;
+  box-shadow: 0 32px 80px rgba(0, 0, 0, 0.2);
+}
+
+.birthday-hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 32px;
+  box-shadow: inset 0 0 120px rgba(255, 255, 255, 0.14);
+  pointer-events: none;
+}
+
+h1 {
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  margin-bottom: 0.75rem;
+  text-shadow: 0 18px 40px rgba(0, 0, 0, 0.25);
+}
+
+.birthday-subtitle {
+  font-size: 1.05rem;
+  margin-bottom: 2rem;
+  opacity: 0.95;
+}
+
+.countdown-card {
+  display: inline-grid;
+  gap: 0.5rem;
+  padding: 1.5rem 2rem;
+  border-radius: 28px;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  margin-bottom: 1.75rem;
+  animation: pulse 1.6s ease-in-out infinite;
+}
+
+.countdown-number {
+  font-size: 4.25rem;
+  font-weight: 800;
+  letter-spacing: -0.04em;
+}
+
+.countdown-text {
+  font-size: 1.05rem;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  opacity: 0.88;
+}
+
+.wish-card {
+  margin: 0 auto;
+  max-width: 740px;
+  padding: 2rem;
+  border-radius: 30px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  position: relative;
+}
+
+.wish-card::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at top left, rgba(255, 228, 246, 0.2), transparent 30%);
+  pointer-events: none;
+}
+
+#birthday-text {
+  font-size: 1.18rem;
+  line-height: 1.8;
+  min-height: 150px;
+  white-space: pre-wrap;
+  position: relative;
+  z-index: 1;
+}
+
+#restart-btn {
+  margin-top: 1.6rem;
+  border: none;
+  border-radius: 999px;
+  padding: 1rem 1.8rem;
+  font-size: 1rem;
+  color: #3f1d4c;
+  background: linear-gradient(120deg, #ffafe6, #ffe8f4);
+  cursor: pointer;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+#restart-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 24px 40px rgba(255, 234, 247, 0.35);
+}
+
+.emoji-row {
+  margin-top: 1.8rem;
+  font-size: 2rem;
+  animation: bounceEmojis 4s ease-in-out infinite;
+}
+
+@keyframes bounceEmojis {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-14px); }
+}
+
+.birthday-features {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.25rem;
+  margin-top: 2.5rem;
+}
+
+.feature {
+  padding: 1.75rem;
+  border-radius: 26px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  text-align: center;
+}
+
+.icon {
+  font-size: 2.2rem;
+  margin-bottom: 1rem;
+}
+
+.feature h2 {
+  font-size: 1.12rem;
+  margin-bottom: 0.85rem;
+}
+
+.feature p {
+  line-height: 1.75;
+  opacity: 0.92;
+}
+
+.balloon-container {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+}
+
+.balloon {
+  position: absolute;
+  width: 28px;
+  height: 40px;
+  border-radius: 50% 50% 45% 45%;
+  background: radial-gradient(circle at top, #fff1f8, #ff89bf);
+  box-shadow: inset -6px -6px 8px rgba(255, 255, 255, 0.25);
+  animation: floatBalloon 7s ease-in forwards;
+}
+
+.balloon::after {
+  content: '';
+  position: absolute;
+  bottom: -16px;
+  left: 50%;
+  width: 2px;
+  height: 18px;
+  background: rgba(255, 255, 255, 0.85);
+  transform: translateX(-50%);
+}
+
+@keyframes floatBalloon {
+  0% { transform: translateY(0); opacity: 0; }
+  10% { opacity: 1; }
+  100% { transform: translateY(-130vh); opacity: 0; }
+}
+
+@keyframes pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.04); }
+}
+
+@media (max-width: 620px) {
+  .birthday-hero {
+    padding: 2rem 1rem;
+  }
+}
