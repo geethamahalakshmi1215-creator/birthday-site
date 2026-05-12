@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
@@ -7,58 +7,69 @@
   <link rel="stylesheet" href="birthday.css" />
 </head>
 <body>
-  <div class="birthday-page">
-    <div class="birthday-hero">
-      <h1>Birthday Countdown 🎂🥳</h1>
-      <p class="birthday-subtitle">A beautiful celebration is nearing — every heartbeat feels brighter.</p>
+  <div class="birthday-bg" aria-hidden="true">
+    <div class="aurora aurora-one"></div>
+    <div class="aurora aurora-two"></div>
+    <div class="star-field"></div>
+  </div>
+
+  <main class="birthday-page">
+    <section class="birthday-hero">
+      <h1>Birthday Countdown &#127874;&#129395;</h1>
+      <p class="birthday-subtitle">A beautiful celebration is nearing &mdash; every heartbeat feels brighter.</p>
+
       <div class="hero-images">
         <div class="photo-frame">
-          <img src="images/photo1.jpeg" alt="Birthday Photo">
+          <img id="birthday-photo" src="images/photo1.jpeg" alt="Birthday photo" />
           <div class="photo-glow"></div>
           <div class="photo-sparkle sparkle-1"></div>
           <div class="photo-sparkle sparkle-2"></div>
           <div class="photo-sparkle sparkle-3"></div>
         </div>
         <div class="cake-card">
-          <div class="cake-header">🎂 Birthday Celebration</div>
+          <div class="cake-header">&#127874; Birthday Celebration</div>
           <div class="cake-body">A meaningful celebration is on its way, full of gentle joy.</div>
-          <div class="cake-icons">🎈🎉🍰🥳</div>
+          <div class="cake-icons">&#127880;&#127881;&#127856;&#129395;</div>
           <div class="cake-note">May the season ahead bring warmth, gratitude, and deep connection.</div>
         </div>
       </div>
+
       <div class="countdown-card">
         <div class="countdown-number" id="countdown">6</div>
         <div class="countdown-text">Days to go</div>
         <div class="countdown-timer" id="timer">06d 00h 00m 00s</div>
       </div>
+
       <div class="wish-card">
-        <p id="birthday-text"></p>
-        <button id="restart-btn">Restart Countdown Magic</button>
+        <div id="birthday-text" aria-live="polite"></div>
+        <button id="restart-btn" type="button">Restart Countdown Magic</button>
       </div>
-      <div class="emoji-row">🎉🎈🎁✨🎊</div>
-    </div>
+
+      <div class="emoji-row">&#127881; &#127880; &#127873; &#10024; &#127882;</div>
+    </section>
 
     <section class="birthday-features">
       <div class="feature">
-        <div class="icon">🎁</div>
+        <div class="icon">&#127873;</div>
         <h2>Advance Celebration</h2>
         <p>Start the excitement early with joyful messages and glowing effects.</p>
       </div>
       <div class="feature">
-        <div class="icon">🕯️</div>
+        <div class="icon">&#128367;&#65039;</div>
         <h2>Heartfelt Reflection</h2>
         <p>Each day of the countdown becomes a gentle reminder of gratitude and love.</p>
       </div>
       <div class="feature">
-        <div class="icon">💌</div>
+        <div class="icon">&#128140;</div>
         <h2>Personal Wishes</h2>
         <p>Six heartwarming lines you can customize for a special Akka Garu.</p>
       </div>
     </section>
+  </main>
 
-    <div class="balloon-container" aria-hidden="true"></div>
-  </div>
+  <div class="balloon-container" aria-hidden="true"></div>
+  <div class="confetti-container" aria-hidden="true"></div>
 
-  <script src="script.js"></script>
+  <script src="birthday.js"></script>
 </body>
 </html>

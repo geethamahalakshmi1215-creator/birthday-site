@@ -1,9 +1,12 @@
-const birthdayText = document.getElementById('birthday-text');
+﻿const birthdayText = document.getElementById('birthday-text');
 const restartBtn = document.getElementById('restart-btn');
 const countdownEl = document.getElementById('countdown');
+const timerEl = document.getElementById('timer');
+const balloonContainer = document.querySelector('.balloon-container');
+const confettiContainer = document.querySelector('.confetti-container');
 
 const birthdayMessages = [
-  'Six days until your birthday — a gentle reminder of the love you inspire.',
+  'Six days until your birthday - a gentle reminder of the love you inspire.',
   'Your kindness turns ordinary moments into memories that glow forever.',
   'This day celebrates you: your strength, your warmth, and your beautiful spirit.',
   'A new chapter is approaching, filled with hope, kindness, and quiet joy.',
@@ -13,101 +16,107 @@ const birthdayMessages = [
   'Akka Garu, you are deeply cherished.',
 ];
 
-let messageIndex = 0;
-let charIndex = 0;
 let timerInterval = null;
+let balloonTimeout = null;
+let confettiTimeout = null;
+
 const countdownTarget = (() => {
   const now = new Date();
   const currentYear = now.getFullYear();
-  const thisYearTarget = new Date(`${currentYear}-05-18T00:00:00`);
-  if (thisYearTarget > now) return thisYearTarget;
-  return new Date(`${currentYear + 1}-05-18T00:00:00`);
+  const thisYearTarget = new Date(currentYear, 4, 18, 0, 0, 0);
+  return thisYearTarget > now ? thisYearTarget : new Date(currentYear + 1, 4, 18, 0, 0, 0);
 })();
 
 function formatTimerValue(value) {
   return String(value).padStart(2, '0');
 }
 
-function updateCountdown() {
-  countdownEl.textContent = countdownValue;
-}
-
 function updateTimer() {
-  const now = new Date();
-  const diff = countdownTarget - now;
-  const totalSeconds = Math.max(0, Math.floor(diff / 1000));
+  const totalSeconds = Math.max(0, Math.floor((countdownTarget - new Date()) / 1000));
   const days = Math.floor(totalSeconds / 86400);
   const hours = Math.floor((totalSeconds % 86400) / 3600);
   const minutes = Math.floor((totalSeconds % 3600) / 60);
   const seconds = totalSeconds % 60;
 
   countdownEl.textContent = days;
-  document.getElementById('timer').textContent = `${formatTimerValue(days)}d ${formatTimerValue(hours)}h ${formatTimerValue(minutes)}m ${formatTimerValue(seconds)}s`;
+  timerEl.textContent = `${formatTimerValue(days)}d ${formatTimerValue(hours)}h ${formatTimerValue(minutes)}m ${formatTimerValue(seconds)}s`;
 }
 
 function startTimer() {
-  if (timerInterval) {
-    clearInterval(timerInterval);
-  }
+  clearInterval(timerInterval);
   updateTimer();
   timerInterval = setInterval(updateTimer, 1000);
 }
 
-function typeBirthdayMessage() {
-  if (messageIndex >= birthdayMessages.length) {
-    birthdayText.innerHTML += '\n\n<span class="final-emoji">🎊</span>';
-    return;
-  }
+function renderBirthdayMessages() {
+  birthdayText.innerHTML = '';
 
-  const currentMessage = birthdayMessages[messageIndex];
-  if (charIndex < currentMessage.length) {
-    birthdayText.textContent += currentMessage.charAt(charIndex);
-    charIndex += 1;
-    setTimeout(typeBirthdayMessage, 55);
-  } else {
-    birthdayText.textContent += '\n\n';
-    messageIndex += 1;
-    charIndex = 0;
-    setTimeout(typeBirthdayMessage, 500);
-  }
+  birthdayMessages.forEach((message, index) => {
+    const line = document.createElement('p');
+    line.className = 'message-line';
+    line.style.animationDelay = `${index * 0.18}s`;
+    line.textContent = message;
+    birthdayText.appendChild(line);
+  });
+
+  const finale = document.createElement('div');
+  finale.className = 'final-emoji';
+  finale.style.animationDelay = `${birthdayMessages.length * 0.18}s`;
+  finale.textContent = '\u{1F38A}';
+  birthdayText.appendChild(finale);
 }
 
-function startStory() {
-  birthdayText.textContent = '';
-  messageIndex = 0;
-  charIndex = 0;
+function restartStory() {
   startTimer();
-  typeBirthdayMessage();
+  renderBirthdayMessages();
 }
-
-restartBtn.addEventListener('click', () => {
-  birthdayText.textContent = '';
-  messageIndex = 0;
-  charIndex = 0;
-  startTimer();
-  typeBirthdayMessage();
-});
 
 function createBalloon() {
   const balloon = document.createElement('div');
+  const size = 24 + Math.random() * 28;
+
   balloon.className = 'balloon';
-  const size = 24 + Math.random() * 24;
   balloon.style.width = `${size}px`;
   balloon.style.height = `${size * 1.35}px`;
-  balloon.style.left = `${Math.random() * 90}vw`;
-  balloon.style.background = `linear-gradient(180deg, rgba(255,255,255,0.95), rgba(${200 + Math.random()*55}, ${90 + Math.random()*120}, ${180 + Math.random()*55}, 1))`;
-  balloon.style.animationDuration = `${6 + Math.random() * 4}s`;
-  document.querySelector('.balloon-container').appendChild(balloon);
+  balloon.style.left = `${Math.random() * 92}vw`;
+  balloon.style.animationDuration = `${7 + Math.random() * 5}s`;
+  balloon.style.background = `linear-gradient(180deg, rgba(255,255,255,0.95), rgba(${210 + Math.random() * 35}, ${95 + Math.random() * 120}, ${185 + Math.random() * 45}, 1))`;
+  balloonContainer.appendChild(balloon);
 
-  setTimeout(() => balloon.remove(), 11000);
+  setTimeout(() => balloon.remove(), 13000);
 }
 
-function startBalloons() {
+function createConfetti() {
+  const piece = document.createElement('span');
+  const colors = ['#ffd166', '#ef476f', '#7df9ff', '#f8b4ff', '#caff8a'];
+
+  piece.className = 'confetti-piece';
+  piece.style.left = `${Math.random() * 100}vw`;
+  piece.style.background = colors[Math.floor(Math.random() * colors.length)];
+  piece.style.animationDuration = `${4 + Math.random() * 3}s`;
+  piece.style.animationDelay = `${Math.random() * 0.7}s`;
+  piece.style.transform = `rotate(${Math.random() * 180}deg)`;
+  confettiContainer.appendChild(piece);
+
+  setTimeout(() => piece.remove(), 8500);
+}
+
+function startBackgroundEffects() {
   createBalloon();
-  setTimeout(startBalloons, 650);
+  createConfetti();
+  balloonTimeout = setTimeout(startBackgroundEffects, 520);
+  confettiTimeout = setTimeout(createConfetti, 180);
 }
+
+restartBtn.addEventListener('click', restartStory);
 
 window.addEventListener('load', () => {
-  startStory();
-  startBalloons();
+  restartStory();
+  startBackgroundEffects();
+});
+
+window.addEventListener('beforeunload', () => {
+  clearInterval(timerInterval);
+  clearTimeout(balloonTimeout);
+  clearTimeout(confettiTimeout);
 });
