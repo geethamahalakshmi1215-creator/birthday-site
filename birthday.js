@@ -3,22 +3,54 @@ const restartBtn = document.getElementById('restart-btn');
 const countdownEl = document.getElementById('countdown');
 
 const birthdayMessages = [
-  'Just 7 days until the birthday sparkle begins!',
-  'Get ready for cake, laughter, and unforgettable joy.',
-  'Each day brings more excitement as the celebration grows near.',
-  'Wishing you a week full of smiles and fun surprises.',
-  'One week to make a wish and share the happiness.',
-  'Happy early birthday! Your special day is almost here. 🎂',
-  'Count down the days with cheerful hearts and bright dreams. ✨',
-  'Akka Garu',
+  'Six days until your birthday — a gentle reminder of the love you inspire.',
+  'Your kindness turns ordinary moments into memories that glow forever.',
+  'This day celebrates you: your strength, your warmth, and your beautiful spirit.',
+  'A new chapter is approaching, filled with hope, kindness, and quiet joy.',
+  'I am grateful for every shared smile, every moment of support, and every kind word.',
+  'Your birthday is a quiet promise that the best moments are still ahead.',
+  'With all my heart, I wish you beauty, peace, and joy on this special day.',
+  'Akka Garu, you are deeply cherished.',
 ];
 
 let messageIndex = 0;
 let charIndex = 0;
-let countdownValue = 7;
+let timerInterval = null;
+const countdownTarget = (() => {
+  const now = new Date();
+  const currentYear = now.getFullYear();
+  const thisYearTarget = new Date(`${currentYear}-05-18T00:00:00`);
+  if (thisYearTarget > now) return thisYearTarget;
+  return new Date(`${currentYear + 1}-05-18T00:00:00`);
+})();
+
+function formatTimerValue(value) {
+  return String(value).padStart(2, '0');
+}
 
 function updateCountdown() {
   countdownEl.textContent = countdownValue;
+}
+
+function updateTimer() {
+  const now = new Date();
+  const diff = countdownTarget - now;
+  const totalSeconds = Math.max(0, Math.floor(diff / 1000));
+  const days = Math.floor(totalSeconds / 86400);
+  const hours = Math.floor((totalSeconds % 86400) / 3600);
+  const minutes = Math.floor((totalSeconds % 3600) / 60);
+  const seconds = totalSeconds % 60;
+
+  countdownEl.textContent = days;
+  document.getElementById('timer').textContent = `${formatTimerValue(days)}d ${formatTimerValue(hours)}h ${formatTimerValue(minutes)}m ${formatTimerValue(seconds)}s`;
+}
+
+function startTimer() {
+  if (timerInterval) {
+    clearInterval(timerInterval);
+  }
+  updateTimer();
+  timerInterval = setInterval(updateTimer, 1000);
 }
 
 function typeBirthdayMessage() {
@@ -44,8 +76,7 @@ function startStory() {
   birthdayText.textContent = '';
   messageIndex = 0;
   charIndex = 0;
-  countdownValue = 7;
-  updateCountdown();
+  startTimer();
   typeBirthdayMessage();
 }
 
@@ -53,8 +84,7 @@ restartBtn.addEventListener('click', () => {
   birthdayText.textContent = '';
   messageIndex = 0;
   charIndex = 0;
-  countdownValue = 7;
-  updateCountdown();
+  startTimer();
   typeBirthdayMessage();
 });
 
@@ -80,4 +110,7 @@ function startBalloons() {
 window.addEventListener('load', () => {
   startStory();
   startBalloons();
+});
+
+
 });
