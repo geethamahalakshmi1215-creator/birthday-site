@@ -47,6 +47,20 @@ body {
   pointer-events: none;
 }
 
+.birthday-hero::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    radial-gradient(circle 6px at 15% 18%, rgba(255, 229, 158, 0.85), transparent 0),
+    radial-gradient(circle 5px at 38% 24%, rgba(255, 149, 236, 0.75), transparent 0),
+    radial-gradient(circle 4px at 78% 12%, rgba(138, 255, 204, 0.8), transparent 0),
+    radial-gradient(circle 5px at 22% 72%, rgba(255, 206, 161, 0.75), transparent 0),
+    radial-gradient(circle 4px at 82% 67%, rgba(148, 190, 255, 0.75), transparent 0);
+  opacity: 0.55;
+  pointer-events: none;
+}
+
 h1 {
   font-size: clamp(2.5rem, 5vw, 4rem);
   margin-bottom: 0.75rem;
@@ -55,13 +69,150 @@ h1 {
 
 .birthday-subtitle {
   font-size: 1.05rem;
-  margin-bottom: 2rem;
+  margin-bottom: 1.5rem;
   opacity: 0.95;
 }
 
+.hero-images {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(180px, 1fr));
+  gap: 1rem;
+  margin-bottom: 1.75rem;
+}
+
+.photo-frame {
+  position: relative;
+  border-radius: 28px;
+  overflow: hidden;
+  border: 2px solid rgba(255, 255, 255, 0.35);
+  box-shadow: 0 28px 60px rgba(0, 0, 0, 0.18);
+}
+
+.photo-frame img {
+  width: 100%;
+  height: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  display: block;
+}
+
+.photo-glow {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: radial-gradient(circle at top left, rgba(255, 255, 255, 0.35), transparent 40%);
+}
+
+.photo-sparkle {
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.85);
+  box-shadow: 0 0 18px rgba(255, 255, 255, 0.7);
+  filter: blur(1px);
+  animation: sparkle 2.5s ease-in-out infinite;
+}
+
+.cake-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.85rem;
+  padding: 1.6rem;
+  min-height: 320px;
+  border-radius: 28px;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.14), rgba(255, 255, 255, 0.08));
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  box-shadow: 0 28px 60px rgba(0, 0, 0, 0.16);
+  position: relative;
+  overflow: hidden;
+}
+
+
+.cake-header {
+  font-size: 1.75rem;
+  font-weight: 700;
+}
+
+.cake-body {
+  font-size: 1rem;
+  opacity: 0.95;
+  text-align: center;
+}
+
+.cake-icons {
+  font-size: 2.2rem;
+}
+
+.cake-note {
+  font-size: 0.96rem;
+  opacity: 0.88;
+  text-align: center;
+}
+
+.greeting-icon {
+  width: 64px;
+  height: 64px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #ffc3f0, #ffd8a8);
+  font-size: 1.7rem;
+}
+
+.greeting-text {
+  text-align: left;
+}
+
+.greeting-text strong {
+  display: block;
+  font-size: 1.25rem;
+  margin-bottom: 0.35rem;
+  letter-spacing: 0.02em;
+}
+
+.greeting-text span {
+  display: block;
+  opacity: 0.88;
+}
+
+.sparkle-1 {
+  top: 12%;
+  left: 20%;
+  animation-delay: 0s;
+}
+
+.sparkle-2 {
+  top: 70%;
+  left: 75%;
+  animation-delay: 0.3s;
+}
+
+.sparkle-3 {
+  top: 50%;
+  left: 40%;
+  animation-delay: 0.6s;
+}
+
+@keyframes sparkle {
+  0%, 100% { transform: scale(1); opacity: 0.75; }
+  50% { transform: scale(1.8); opacity: 0.1; }
+}
+
+.hero-images > img {
+  width: 100%;
+  border-radius: 24px;
+  object-fit: cover;
+  height: 170px;
+  border: 1px solid rgba(255,255,255,0.2);
+  box-shadow: 0 18px 40px rgba(0,0,0,0.12);
+}
+
 .countdown-card {
-  display: inline-grid;
-  gap: 0.5rem;
+  display: grid;
+  gap: 0.75rem;
   padding: 1.5rem 2rem;
   border-radius: 28px;
   background: rgba(255, 255, 255, 0.1);
@@ -74,6 +225,16 @@ h1 {
   font-size: 4.25rem;
   font-weight: 800;
   letter-spacing: -0.04em;
+}
+
+.countdown-timer {
+  font-size: 1.1rem;
+  letter-spacing: 0.08em;
+  color: #fff;
+  padding: 0.9rem 1rem;
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.18);
 }
 
 .countdown-text {
@@ -204,6 +365,12 @@ h1 {
 @keyframes pulse {
   0%, 100% { transform: scale(1); }
   50% { transform: scale(1.04); }
+}
+
+@media (max-width: 900px) {
+  .hero-images {
+    grid-template-columns: 1fr;
+  }
 }
 
 @media (max-width: 620px) {
