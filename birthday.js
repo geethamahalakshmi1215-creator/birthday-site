@@ -111,6 +111,3 @@ window.addEventListener('load', () => {
   startStory();
   startBalloons();
 });
-
-
-});
