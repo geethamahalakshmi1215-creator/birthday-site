@@ -328,7 +328,7 @@ h1 {
 
 .balloon-container,
 .confetti-container {
-  z-index: 2;
+  z-index: 0;
 }
 
 .balloon {
@@ -338,7 +338,8 @@ h1 {
   height: 40px;
   border-radius: 50% 50% 45% 45%;
   background: radial-gradient(circle at top, #fff1f8, #ff89bf);
-  box-shadow: inset -6px -6px 8px rgba(255, 255, 255, 0.25);
+  box-shadow: inset -5px -5px 7px rgba(255, 255, 255, 0.22);
+  opacity: 0.62;
   animation: floatBalloon 7s ease-in forwards;
 }
 
@@ -359,7 +360,7 @@ h1 {
   width: 9px;
   height: 15px;
   border-radius: 3px;
-  opacity: 0.85;
+  opacity: 0.58;
   animation: fallConfetti linear forwards;
 }
 
@@ -388,13 +389,13 @@ h1 {
 
 @keyframes floatBalloon {
   0% { transform: translateY(0); opacity: 0; }
-  10% { opacity: 1; }
+  10% { opacity: 0.62; }
   100% { transform: translateY(-130vh); opacity: 0; }
 }
 
 @keyframes fallConfetti {
   0% { transform: translateY(0) rotate(0deg); opacity: 0; }
-  10% { opacity: 0.9; }
+  10% { opacity: 0.58; }
   100% { transform: translateY(110vh) rotate(540deg); opacity: 0; }
 }
 

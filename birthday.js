@@ -73,17 +73,17 @@ function restartStory() {
 
 function createBalloon() {
   const balloon = document.createElement('div');
-  const size = 24 + Math.random() * 28;
+  const size = 18 + Math.random() * 16;
 
   balloon.className = 'balloon';
   balloon.style.width = `${size}px`;
   balloon.style.height = `${size * 1.35}px`;
   balloon.style.left = `${Math.random() * 92}vw`;
-  balloon.style.animationDuration = `${7 + Math.random() * 5}s`;
+  balloon.style.animationDuration = `${9 + Math.random() * 4}s`;
   balloon.style.background = `linear-gradient(180deg, rgba(255,255,255,0.95), rgba(${210 + Math.random() * 35}, ${95 + Math.random() * 120}, ${185 + Math.random() * 45}, 1))`;
   balloonContainer.appendChild(balloon);
 
-  setTimeout(() => balloon.remove(), 13000);
+  setTimeout(() => balloon.remove(), 9000);
 }
 
 function createConfetti() {
@@ -93,19 +93,19 @@ function createConfetti() {
   piece.className = 'confetti-piece';
   piece.style.left = `${Math.random() * 100}vw`;
   piece.style.background = colors[Math.floor(Math.random() * colors.length)];
-  piece.style.animationDuration = `${4 + Math.random() * 3}s`;
+  piece.style.animationDuration = `${5 + Math.random() * 3}s`;
   piece.style.animationDelay = `${Math.random() * 0.7}s`;
   piece.style.transform = `rotate(${Math.random() * 180}deg)`;
   confettiContainer.appendChild(piece);
 
-  setTimeout(() => piece.remove(), 8500);
+  setTimeout(() => piece.remove(), 7000);
 }
 
 function startBackgroundEffects() {
   createBalloon();
   createConfetti();
-  balloonTimeout = setTimeout(startBackgroundEffects, 520);
-  confettiTimeout = setTimeout(createConfetti, 180);
+  balloonTimeout = setTimeout(startBackgroundEffects, 1800);
+  confettiTimeout = setTimeout(createConfetti, 650);
 }
 
 restartBtn.addEventListener('click', restartStory);
