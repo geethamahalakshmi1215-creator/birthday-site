@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # 🎂 Birthday Greeting Website
 
 A beautiful, emotionally-touching full-stack birthday greeting website with image gallery, 7-minute timer, and seen/unseen tracking.

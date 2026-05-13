@@ -1,0 +1,416 @@
+﻿:root {
+  --bg1: #210553;
+  --bg2: #701282;
+  --bg3: #9a238b;
+  --text: #fbf3ff;
+  --muted: rgba(251, 243, 255, 0.84);
+  --line: rgba(255, 255, 255, 0.18);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  min-height: 100vh;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: var(--text);
+  background:
+    radial-gradient(circle at 15% 10%, rgba(255, 211, 244, 0.2), transparent 28%),
+    radial-gradient(circle at 82% 18%, rgba(126, 255, 231, 0.12), transparent 25%),
+    linear-gradient(135deg, var(--bg1), var(--bg2) 48%, var(--bg3));
+  overflow-x: hidden;
+}
+
+.birthday-bg,
+.balloon-container,
+.confetti-container {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.birthday-bg {
+  z-index: 0;
+}
+
+.aurora {
+  position: absolute;
+  width: 42vw;
+  min-width: 320px;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  filter: blur(48px);
+  opacity: 0.45;
+  animation: driftGlow 14s ease-in-out infinite alternate;
+}
+
+.aurora-one {
+  left: -10%;
+  top: 8%;
+  background: rgba(255, 157, 224, 0.48);
+}
+
+.aurora-two {
+  right: -12%;
+  bottom: 2%;
+  background: rgba(116, 237, 255, 0.24);
+  animation-delay: -5s;
+}
+
+.star-field {
+  position: absolute;
+  inset: 0;
+  background-image:
+    radial-gradient(circle 2px at 12% 18%, rgba(255,255,255,0.75), transparent 2px),
+    radial-gradient(circle 1px at 26% 35%, rgba(255,214,240,0.7), transparent 2px),
+    radial-gradient(circle 2px at 78% 16%, rgba(255,255,255,0.65), transparent 2px),
+    radial-gradient(circle 1px at 88% 54%, rgba(202,255,245,0.7), transparent 2px),
+    radial-gradient(circle 2px at 42% 78%, rgba(255,244,189,0.7), transparent 2px);
+  animation: twinkle 4s ease-in-out infinite;
+}
+
+.birthday-page {
+  position: relative;
+  z-index: 1;
+  padding: 2.5rem 1.5rem 3rem;
+  max-width: 1180px;
+  margin: 0 auto;
+}
+
+.birthday-hero {
+  position: relative;
+  overflow: hidden;
+  text-align: center;
+  padding: 3rem 1.5rem;
+  border-radius: 32px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid var(--line);
+  backdrop-filter: blur(20px);
+  box-shadow: 0 32px 90px rgba(20, 0, 38, 0.32);
+}
+
+.birthday-hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 32px;
+  box-shadow: inset 0 0 120px rgba(255, 255, 255, 0.14);
+  pointer-events: none;
+}
+
+.birthday-hero::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    radial-gradient(circle 6px at 15% 18%, rgba(255, 229, 158, 0.85), transparent 0),
+    radial-gradient(circle 5px at 38% 24%, rgba(255, 149, 236, 0.75), transparent 0),
+    radial-gradient(circle 4px at 78% 12%, rgba(138, 255, 204, 0.8), transparent 0),
+    radial-gradient(circle 5px at 22% 72%, rgba(255, 206, 161, 0.75), transparent 0),
+    radial-gradient(circle 4px at 82% 67%, rgba(148, 190, 255, 0.75), transparent 0);
+  opacity: 0.55;
+  pointer-events: none;
+}
+
+.birthday-hero > * {
+  position: relative;
+  z-index: 1;
+}
+
+h1 {
+  font-size: clamp(2.5rem, 5vw, 4.2rem);
+  line-height: 1.05;
+  margin-bottom: 0.75rem;
+  text-shadow: 0 18px 40px rgba(0, 0, 0, 0.25);
+}
+
+.birthday-subtitle {
+  font-size: 1.05rem;
+  margin-bottom: 1.5rem;
+  color: var(--muted);
+}
+
+.hero-images {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(220px, 1fr));
+  gap: 1rem;
+  margin-bottom: 1.75rem;
+}
+
+.photo-frame,
+.cake-card,
+.countdown-card,
+.wish-card,
+.feature {
+  border: 1px solid var(--line);
+  background: rgba(255, 255, 255, 0.1);
+  box-shadow: 0 28px 60px rgba(0, 0, 0, 0.18);
+}
+
+.photo-frame {
+  position: relative;
+  border-radius: 28px;
+  overflow: hidden;
+}
+
+.photo-frame img {
+  width: 100%;
+  height: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  display: block;
+}
+
+.photo-glow {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: radial-gradient(circle at top left, rgba(255, 255, 255, 0.35), transparent 40%);
+}
+
+.photo-sparkle {
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.85);
+  box-shadow: 0 0 18px rgba(255, 255, 255, 0.7);
+  filter: blur(1px);
+  animation: sparkle 2.5s ease-in-out infinite;
+}
+
+.sparkle-1 { top: 12%; left: 20%; animation-delay: 0s; }
+.sparkle-2 { top: 70%; left: 75%; animation-delay: 0.3s; }
+.sparkle-3 { top: 50%; left: 40%; animation-delay: 0.6s; }
+
+.cake-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.85rem;
+  padding: 1.6rem;
+  min-height: 320px;
+  border-radius: 28px;
+}
+
+.cake-header {
+  font-size: 1.75rem;
+  font-weight: 700;
+}
+
+.cake-body,
+.cake-note {
+  max-width: 28rem;
+  line-height: 1.6;
+  color: var(--muted);
+}
+
+.cake-icons {
+  font-size: 2.2rem;
+}
+
+.countdown-card {
+  display: grid;
+  gap: 0.75rem;
+  padding: 1.5rem 2rem;
+  border-radius: 28px;
+  margin-bottom: 1.75rem;
+  animation: pulse 1.8s ease-in-out infinite;
+}
+
+.countdown-number {
+  font-size: clamp(4rem, 9vw, 6rem);
+  font-weight: 800;
+}
+
+.countdown-text {
+  font-size: 1.05rem;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  color: var(--muted);
+}
+
+.countdown-timer {
+  font-size: 1.1rem;
+  letter-spacing: 0.08em;
+  padding: 0.9rem 1rem;
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.14);
+  border: 1px solid var(--line);
+}
+
+.wish-card {
+  margin: 0 auto;
+  max-width: 900px;
+  min-height: 350px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: clamp(1.4rem, 4vw, 3rem);
+  border-radius: 30px;
+}
+
+#birthday-text {
+  display: grid;
+  gap: 1.25rem;
+  font-size: clamp(1rem, 2.1vw, 1.5rem);
+  line-height: 1.6;
+}
+
+.message-line {
+  opacity: 0;
+  transform: translateY(14px);
+  animation: revealMessage 0.75s ease forwards;
+}
+
+.final-emoji {
+  opacity: 0;
+  font-size: 2rem;
+  animation: revealMessage 0.75s ease forwards, bounceEmojis 3s ease-in-out infinite;
+}
+
+#restart-btn {
+  align-self: center;
+  margin-top: 1.8rem;
+  border: none;
+  border-radius: 999px;
+  padding: 1rem 1.8rem;
+  font-size: 1rem;
+  color: #3f1d4c;
+  background: linear-gradient(120deg, #ffafe6, #fff0f8);
+  cursor: pointer;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+#restart-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 24px 40px rgba(255, 234, 247, 0.35);
+}
+
+.emoji-row {
+  margin-top: 1.8rem;
+  font-size: 2rem;
+  animation: bounceEmojis 4s ease-in-out infinite;
+}
+
+.birthday-features {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.25rem;
+  margin-top: 2.5rem;
+}
+
+.feature {
+  padding: 1.75rem;
+  border-radius: 26px;
+  text-align: center;
+}
+
+.icon {
+  font-size: 2.2rem;
+  margin-bottom: 1rem;
+}
+
+.feature h2 {
+  font-size: 1.12rem;
+  margin-bottom: 0.85rem;
+}
+
+.feature p {
+  line-height: 1.75;
+  color: var(--muted);
+}
+
+.balloon-container,
+.confetti-container {
+  z-index: 0;
+}
+
+.balloon {
+  position: absolute;
+  bottom: -72px;
+  width: 28px;
+  height: 40px;
+  border-radius: 50% 50% 45% 45%;
+  background: radial-gradient(circle at top, #fff1f8, #ff89bf);
+  box-shadow: inset -5px -5px 7px rgba(255, 255, 255, 0.22);
+  opacity: 0.62;
+  animation: floatBalloon 7s ease-in forwards;
+}
+
+.balloon::after {
+  content: '';
+  position: absolute;
+  bottom: -16px;
+  left: 50%;
+  width: 2px;
+  height: 18px;
+  background: rgba(255, 255, 255, 0.85);
+  transform: translateX(-50%);
+}
+
+.confetti-piece {
+  position: absolute;
+  top: -18px;
+  width: 9px;
+  height: 15px;
+  border-radius: 3px;
+  opacity: 0.58;
+  animation: fallConfetti linear forwards;
+}
+
+@keyframes revealMessage {
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes driftGlow {
+  to { transform: translate3d(8vw, 5vh, 0) scale(1.12); }
+}
+
+@keyframes twinkle {
+  0%, 100% { opacity: 0.55; }
+  50% { opacity: 0.95; }
+}
+
+@keyframes sparkle {
+  0%, 100% { transform: scale(1); opacity: 0.75; }
+  50% { transform: scale(1.8); opacity: 0.1; }
+}
+
+@keyframes bounceEmojis {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-14px); }
+}
+
+@keyframes floatBalloon {
+  0% { transform: translateY(0); opacity: 0; }
+  10% { opacity: 0.62; }
+  100% { transform: translateY(-130vh); opacity: 0; }
+}
+
+@keyframes fallConfetti {
+  0% { transform: translateY(0) rotate(0deg); opacity: 0; }
+  10% { opacity: 0.58; }
+  100% { transform: translateY(110vh) rotate(540deg); opacity: 0; }
+}
+
+@keyframes pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.035); }
+}
+
+@media (max-width: 900px) {
+  .hero-images { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 620px) {
+  .birthday-page { padding: 1rem 0.75rem 2rem; }
+  .birthday-hero { padding: 2rem 1rem; border-radius: 24px; }
+  .wish-card { min-height: 300px; }
+  .countdown-card { padding: 1.25rem 1rem; }
+}
