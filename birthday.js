@@ -6,19 +6,19 @@ const balloonContainer = document.querySelector('.balloon-container');
 const confettiContainer = document.querySelector('.confetti-container');
 
 const birthdayMessages = [
-`Just five more days until your birthday… 🎂✨ and honestly, some people deserve more than just wishes — they deserve to be reminded how deeply precious they are 🤍`,
 
-`You are the kind of person whose presence becomes comfort without effort 🌸 A single conversation with you can calm a heavy heart 💫 A single smile from you can make an ordinary day feel meaningful 🌷 That softness in you is truly rare 💖`,
+`Four days to go… 🌸`,
 
-`In a world where many people pretend, your heart remains genuine 🕊️ You care quietly, love sincerely, and stand by people even when you expect nothing in return 🌹 That kind of soul is impossible to replace ✨`,
+`Akka Garu, the world became softer and more beautiful the day you were born 💐✨`,
 
-`I hope this birthday reminds you that you are not invisible, not ordinary, and never unimportant 🌼 The love you give matters 💕 The sacrifices you make matter 🌙 You matter more than words can ever explain 🤍`,
+`Some people enter lives quietly… but leave comfort, warmth, and unforgettable memories behind 🤍`,
 
-`May this next chapter of your life bring you peaceful mornings ☀️ genuine laughter 😊 people who truly value your heart 💞 and moments that heal every hidden sadness you never speak about 🌈`,
+`Your kindness is gentle, your heart is genuine, and your presence feels like peace after a long day 🌷`,
 
-`You deserve happiness that stays 🌸 love that feels safe 🫶 and dreams that finally come true without pain following behind them ⭐`,
+`You care without expecting anything back, support people silently, and make others feel valued just by being there 💫`,
 
-`Akka Garu, the world became softer and more beautiful the day you were born 💐✨🤍`
+`Four more days until your birthday 🎂 But souls like yours deserve celebration every single day 🌙💖`
+
 ];
 
 let timerInterval = null;
