@@ -604,4 +604,15 @@ h1 {
 
     line-height: 1.8;
   }
+  .features {
+  display: grid !important;
+  grid-template-columns: repeat(3, 1fr) !important;
+  gap: 20px;
+  margin-top: 2.5rem;
+}
+  .feature {
+  width: 100%;
+  min-height: 200px;
+}
+  
 }
