@@ -6,14 +6,19 @@ const balloonContainer = document.querySelector('.balloon-container');
 const confettiContainer = document.querySelector('.confetti-container');
 
 const birthdayMessages = [
-  'Six days until your birthday - a gentle reminder of the love you inspire.',
-  'Your kindness turns ordinary moments into memories that glow forever.',
-  'This day celebrates you: your strength, your warmth, and your beautiful spirit.',
-  'A new chapter is approaching, filled with hope, kindness, and quiet joy.',
-  'I am grateful for every shared smile, every moment of support, and every kind word.',
-  'Your birthday is a quiet promise that the best moments are still ahead.',
-  'With all my heart, I wish you beauty, peace, and joy on this special day.',
-  'Akka Garu, you are deeply cherished.',
+  'Just five more days until your birthday… 🎂✨ and honestly, some people deserve more than just wishes — they deserve to be reminded how deeply precious they are 🤍',
+
+'You are the kind of person whose presence becomes comfort without effort 🌸 A single conversation with you can calm a heavy heart 💫 A single smile from you can make an ordinary day feel meaningful 🌷 That softness in you is truly rare 💖',
+
+'In a world where many people pretend, your heart remains genuine 🕊️ You care quietly, love sincerely, and stand by people even when you expect nothing in return 🌹 That kind of soul is impossible to replace ✨',
+
+'I hope this birthday reminds you that you are not invisible, not ordinary, and never unimportant 🌼 The love you give matters 💕 The sacrifices you make matter 🌙 You matter more than words can ever explain 🤍',
+
+'May this next chapter of your life bring you peaceful mornings ☀️ genuine laughter 😊 people who truly value your heart 💞 and moments that heal every hidden sadness you never speak about 🌈',
+
+'You deserve happiness that stays 🌸 love that feels safe 🫶 and dreams that finally come true without pain following behind them ⭐',
+
+'Akka Garu, the world became softer and more beautiful the day you were born 💐✨🤍',
 ];
 
 let timerInterval = null;
