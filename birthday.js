@@ -7,18 +7,16 @@ const confettiContainer = document.querySelector('.confetti-container');
 
 const birthdayMessages = [
 
-`Four days to go… 🌸`,
+'3 days to go… 🌸',
 
-`Akka Garu, the world became softer and more beautiful the day you were born 💐✨`,
+'Akka Garu, time is quietly moving closer to your day, and I just want to acknowledge something simple',
 
-`Some people enter lives quietly… but leave comfort, warmth, and unforgettable memories behind 🤍`,
+'You don’t need big moments to be seen—your consistency, your way of handling things, and the calm you carry already say enough.',
 
-`Your kindness is gentle, your heart is genuine, and your presence feels like peace after a long day 🌷`,
+'Not everything in life is easy or perfectly understood, but some people still stand out without trying.',
 
-`You care without expecting anything back, support people silently, and make others feel valued just by being there 💫`,
-
-`Four more days until your birthday 🎂 But souls like yours deserve celebration every single day 🌙💖`
-
+'3 days left for your birthday 🎂',
+'And this is just a small reminder that your presence already matters more than you realize 🌙',
 ];
 
 let timerInterval = null;
