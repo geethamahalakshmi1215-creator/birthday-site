@@ -11,7 +11,7 @@ const birthdayMessages = [
 
 'Akka Garu, time is quietly moving closer to your day, and I just want to acknowledge something simple',
 
-'You don’t need big moments to be seen—your consistency, your way of handling things, and the calm you carry already say enough.',
+'You don’t need big moments to be seen your consistency, your way of handling things, and the calm you carry already say enough.',
 
 'Not everything in life is easy or perfectly understood, but some people still stand out without trying.',
 
