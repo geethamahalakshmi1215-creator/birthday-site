@@ -7,17 +7,17 @@ const confettiContainer = document.querySelector('.confetti-container');
 
 const birthdayMessages = [
 
-'2 days to go… 🌸',
+'1 day to go… 🌸',
 
-'Akka Garu, not every person leaves an impact loudly… some do it quietly, just by being genuine 🌷',
+'Tomorrow is not just a birthday, Akka… it’s a reminder that someone truly precious came into this world 🤍',
 
-'Your words, your care, and the way you treat people with sincerity make you rare in today’s world ✨',
+'Some people make others feel valued without even trying, and you are one of them, Akka ✨',
 
-'Some bonds slowly become important without us even noticing, and that’s what makes them special 🤍',
+'In a world where many relationships fade quickly, your presence feels rare, calm, and genuine 🌷',
 
-'Just 2 days left for your birthday 🎂',
+'The comfort, trust, and memories this bond gave me will always stay special, Akka 💖',
 
-'Hope your smile stays the same beautiful and peaceful always 🌙💖',
+'Just 1 day left until we celebrate the beautiful soul called Akka Garu 🎂🌙',
 ];
 
 let timerInterval = null;
