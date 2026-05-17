@@ -2,74 +2,140 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Birthday Wishes</title>
-  <link rel="stylesheet" href="birthday.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Birthday Countdown</title>
+
+  <link rel="stylesheet" href="birthday.css"/>
 </head>
+
 <body>
-  <div class="birthday-bg" aria-hidden="true">
+
+  <!-- BACKGROUND -->
+  <div class="birthday-bg">
     <div class="aurora aurora-one"></div>
     <div class="aurora aurora-two"></div>
     <div class="star-field"></div>
   </div>
 
+  <!-- MAIN PAGE -->
   <main class="birthday-page">
-    <section class="birthday-hero">
-      <h1>Birthday Countdown &#127874;&#129395;</h1>
-      <p class="birthday-subtitle">A beautiful celebration is nearing &mdash; every heartbeat feels brighter.</p>
 
+    <section class="birthday-hero">
+
+      <h1>Birthday Countdown 🎂✨</h1>
+
+      <p class="birthday-subtitle">
+        A beautiful celebration is nearing...
+      </p>
+
+      <!-- IMAGES -->
       <div class="hero-images">
+
         <div class="photo-frame">
-          <img id="birthday-photo" src="images/photo1.jpeg" alt="Birthday photo" />
+          <img src="images/photo1.jpeg" alt="photo"/>
+
           <div class="photo-glow"></div>
+
           <div class="photo-sparkle sparkle-1"></div>
           <div class="photo-sparkle sparkle-2"></div>
           <div class="photo-sparkle sparkle-3"></div>
         </div>
+
         <div class="cake-card">
-          <div class="cake-header">&#127874; Birthday Celebration</div>
-          <div class="cake-body">A meaningful celebration is on its way, full of gentle joy.</div>
-          <div class="cake-icons">&#127880;&#127881;&#127856;&#129395;</div>
-          <div class="cake-note">May the season ahead bring warmth, gratitude, and deep connection.</div>
+          <div class="cake-header">🎂 Birthday Celebration</div>
+
+          <div class="cake-body">
+            A meaningful celebration is on its way,
+            full of gentle joy.
+          </div>
+
+          <div class="cake-icons">
+            🎉 🎊 ✨ 🌸
+          </div>
+
+          <div class="cake-note">
+            Some people make the world softer just by existing.
+          </div>
         </div>
+
       </div>
 
+      <!-- COUNTDOWN -->
       <div class="countdown-card">
-        <div class="countdown-number" id="countdown">6</div>
-        <div class="countdown-text">Days to go</div>
-        <div class="countdown-timer" id="timer">06d 00h 00m 00s</div>
+
+        <div class="countdown-number" id="countdown">
+          1
+        </div>
+
+        <div class="countdown-text">
+          Day To Go
+        </div>
+
+        <div class="countdown-timer" id="timer">
+          00d 00h 00m 00s
+        </div>
+
       </div>
 
+      <!-- MESSAGE -->
       <div class="wish-card">
-        <div id="birthday-text" aria-live="polite"></div>
-        <button id="restart-btn" type="button">Restart Countdown Magic</button>
+
+        <div id="birthday-text"></div>
+
+        <button id="restart-btn">
+          Restart Countdown Magic
+        </button>
+
       </div>
 
-      <div class="emoji-row">&#127881; &#127880; &#127873; &#10024; &#127882;</div>
     </section>
 
-    <section class="birthday-features">
-      <div class="feature">
-        <div class="icon">&#127873;</div>
-        <h2>Advance Celebration</h2>
-        <p>Start the excitement early with joyful messages and glowing effects.</p>
-      </div>
-      <div class="feature">
-        <div class="icon">&#128367;&#65039;</div>
-        <h2>Heartfelt Reflection</h2>
-        <p>Each day of the countdown becomes a gentle reminder of gratitude and love.</p>
-      </div>
-      <div class="feature">
-        <div class="icon">&#128140;</div>
-        <h2>Personal Wishes</h2>
-        <p>Six heartwarming lines you can customize for a special Akka Garu.</p>
-      </div>
-    </section>
   </main>
 
-  <div class="balloon-container" aria-hidden="true"></div>
-  <div class="confetti-container" aria-hidden="true"></div>
+  <!-- EFFECTS -->
+  <div class="balloon-container"></div>
+  <div class="confetti-container"></div>
+
+  <!-- CINEMATIC ENDING -->
+  <div id="cinematic-ending" class="ending-hidden">
+
+    <div class="ending-overlay"></div>
+
+    <div class="particle-layer"></div>
+
+    <div class="glow-core"></div>
+
+    <div class="birthday-flower">
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+
+    <div class="ending-content">
+
+      <p class="cinematic-line">
+        And then...
+      </p>
+
+      <p class="cinematic-line delay">
+        the world became more beautiful 🌸
+      </p>
+
+      <h1 class="birthday-final-title">
+        Happy Birthday Akka 🤍
+      </h1>
+
+    </div>
+
+  </div>
+
+  <!-- SONG -->
+  <audio id="birthday-song">
+    <source src="C:\Users\B.GEETHA MAHALAKSHMI\Downloads\New folder\last_7_minutes.mp3" type="audio/mp3">
+  </audio>
 
   <script src="birthday.js"></script>
+
 </body>
 </html>
