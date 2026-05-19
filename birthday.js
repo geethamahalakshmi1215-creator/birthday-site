@@ -11,8 +11,7 @@ const birthdayMessages = [
 'She stands beside me during my hardest times 🌧️➡️☀️ and encourages me to stay strong no matter what happens 💪✨.',
 'Her words, guidance, and affection make me feel safe, valued, and never alone in life 🫶🌸.',
 'The bond I share with my akka is filled with trust, countless memories 📸, and unconditional care that means everything to me ❤️.',
-'I may not be expressive with words 🥺💭, but my akka means the world to me ❤️. No matter where life takes us 🌍✨, she will always have a special place in my heart 💖🫶.
-.',
+'I may not be expressive with words 🥺💭, but my akka means the world to me ❤️. No matter where life takes us 🌍✨, she will always have a special place in my heart 💖🫶.',
 
 ];
 
