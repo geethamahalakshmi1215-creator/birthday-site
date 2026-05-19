@@ -7,17 +7,13 @@ const confettiContainer = document.querySelector('.confetti-container');
 
 const birthdayMessages = [
 
-'1 day to go… 🌸',
+'My akka is one of the most precious people in my life 💖, always caring for me with love, support, and understanding 🤗.',
+'She stands beside me during my hardest times 🌧️➡️☀️ and encourages me to stay strong no matter what happens 💪✨.',
+'Her words, guidance, and affection make me feel safe, valued, and never alone in life 🫶🌸.',
+'The bond I share with my akka is filled with trust, countless memories 📸, and unconditional care that means everything to me ❤️.',
+'I may not be expressive with words 🥺💭, but my akka means the world to me ❤️. No matter where life takes us 🌍✨, she will always have a special place in my heart 💖🫶.
+.',
 
-'Tomorrow is not just a birthday, Akka… it’s a reminder that someone truly precious came into this world 🤍',
-
-'Some people make others feel valued without even trying, and you are one of them, Akka ✨',
-
-'In a world where many relationships fade quickly, your presence feels rare, calm, and genuine 🌷',
-
-'The comfort, trust, and memories this bond gave me will always stay special, Akka 💖',
-
-'Just 1 day left until we celebrate the beautiful soul called Akka Garu 🎂🌙',
 ];
 
 let timerInterval = null;
