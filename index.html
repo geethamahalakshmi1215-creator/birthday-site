@@ -1,1114 +1,340 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<<<<<<< HEAD
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>🎂 Birthday Greeting - A Special Message For You 🎂</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>🎂 Happy Birthday 🎂</title>
+
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
     }
 
-    :root {
-      --primary-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-      --secondary-gradient: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
-      --accent-color: #ff6b9d;
-      --heart-color: #ff4757;
-      --success-color: #2ed573;
-      --warning-color: #ffa502;
-      --text-dark: #2c3e50;
-      --text-light: #ecf0f1;
-      --bg-light: #f8f9fa;
-      --shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
-      --shadow-lg: 0 20px 60px rgba(0, 0, 0, 0.15);
+    body{
+      font-family: Arial, sans-serif;
+      background: linear-gradient(135deg,#667eea,#764ba2);
+      min-height:100vh;
+      overflow-x:hidden;
+      color:white;
     }
 
-    body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background: var(--primary-gradient);
-      color: var(--text-dark);
-      line-height: 1.6;
-      min-height: 100vh;
-      position: relative;
+    .container{
+      width:100%;
+      min-height:100vh;
+      padding:20px;
+      text-align:center;
     }
 
-    body::before {
-      content: '';
-      position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background: radial-gradient(circle at 20% 50%, rgba(255, 107, 157, 0.1) 0%, transparent 50%),
-                  radial-gradient(circle at 80% 80%, rgba(102, 126, 234, 0.1) 0%, transparent 50%);
-      pointer-events: none;
-      z-index: -1;
+    .title{
+      margin-top:30px;
+      font-size:4rem;
+      animation: glow 2s infinite alternate;
     }
 
-    .container {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 20px;
+    .subtitle{
+      margin-top:10px;
+      font-size:1.5rem;
+      opacity:0.9;
     }
 
-    .header {
-      text-align: center;
-      margin-bottom: 50px;
-      padding: 40px 20px;
-      background: rgba(255, 255, 255, 0.95);
-      border-radius: 20px;
-      box-shadow: var(--shadow-lg);
-      backdrop-filter: blur(10px);
-      animation: slideInDown 0.8s ease-out;
-    }
-
-    .title {
-      font-size: 3.5em;
-      background: var(--secondary-gradient);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-      margin-bottom: 10px;
-      font-weight: 800;
-      letter-spacing: 2px;
-    }
-
-    .subtitle {
-      font-size: 1.2em;
-      color: #666;
-      margin-bottom: 20px;
-      font-style: italic;
-    }
-
-    .person-name-section {
-      display: flex;
-      gap: 10px;
-      justify-content: center;
-      margin-top: 20px;
-      flex-wrap: wrap;
-    }
-
-    .person-name-input {
-      padding: 12px 20px;
-      border: 2px solid var(--accent-color);
-      border-radius: 25px;
-      font-size: 1em;
-      flex: 1;
-      min-width: 200px;
-      max-width: 300px;
-      background: rgba(255, 255, 255, 0.8);
-      transition: all 0.3s ease;
-    }
-
-    .person-name-input:focus {
-      outline: none;
-      border-color: var(--primary-gradient);
-      box-shadow: 0 0 15px rgba(102, 126, 234, 0.3);
-      transform: scale(1.02);
-    }
-
-    .btn-save-name {
-      padding: 12px 30px;
-      background: var(--accent-color);
-      color: white;
-      border: none;
-      border-radius: 25px;
-      cursor: pointer;
-      font-weight: 600;
-      transition: all 0.3s ease;
-      box-shadow: var(--shadow);
-    }
-
-    .btn-save-name:hover {
-      transform: translateY(-2px);
-      box-shadow: var(--shadow-lg);
-    }
-
-    .main-content {
-      animation: fadeIn 1s ease-out;
-    }
-
-    .section-title {
-      font-size: 1.8em;
-      margin: 30px 0 20px 0;
-      text-align: center;
-      color: white;
-      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
-    }
-
-    .gallery-section {
-      margin-bottom: 50px;
-      background: rgba(255, 255, 255, 0.95);
-      padding: 40px;
-      border-radius: 20px;
-      box-shadow: var(--shadow-lg);
-    }
-
-    .gallery-container {
-      background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
-      padding: 20px;
-      border-radius: 15px;
-      margin-bottom: 30px;
-    }
-
-    .gallery-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-      gap: 15px;
-      min-height: 300px;
-    }
-
-    .image-slot {
-      aspect-ratio: 1;
-      border: 3px dashed var(--accent-color);
-      border-radius: 15px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background: linear-gradient(135deg, rgba(255, 107, 157, 0.1), rgba(102, 126, 234, 0.1));
-      cursor: pointer;
-      position: relative;
-      overflow: hidden;
-      transition: all 0.3s ease;
-    }
-
-    .image-slot:hover {
-      transform: scale(1.05);
-      box-shadow: 0 8px 25px rgba(255, 107, 157, 0.3);
-      border-color: var(--primary-gradient);
-    }
-
-    .image-slot.filled {
-      border: none;
-      background: none;
-    }
-
-    .image-slot img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      border-radius: 12px;
-    }
-
-    .slot-number {
-      font-size: 2em;
-      color: var(--accent-color);
-      opacity: 0.5;
-      transition: all 0.3s ease;
-    }
-
-    .image-slot:hover .slot-number {
-      opacity: 1;
-      transform: scale(1.2);
-    }
-
-    .image-status-badge {
-      position: absolute;
-      top: 5px;
-      right: 5px;
-      width: 30px;
-      height: 30px;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 0.8em;
-      background: white;
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
-      z-index: 10;
-    }
-
-    .image-status-badge.seen {
-      background: var(--success-color);
-      color: white;
-    }
-
-    .image-status-badge.unseen {
-      background: var(--warning-color);
-      color: white;
-    }
-
-    .upload-section {
-      margin-top: 30px;
-    }
-
-    .upload-section h3 {
-      margin-bottom: 15px;
-      color: var(--text-dark);
-    }
-
-    .upload-area {
-      border: 3px dashed var(--primary-gradient);
-      border-radius: 15px;
-      padding: 30px;
-      text-align: center;
-      background: rgba(102, 126, 234, 0.05);
-      cursor: pointer;
-      transition: all 0.3s ease;
-      margin-bottom: 15px;
-    }
-
-    .upload-area:hover,
-    .upload-area.dragover {
-      background: rgba(102, 126, 234, 0.15);
-      transform: scale(1.02);
-      box-shadow: 0 8px 25px rgba(102, 126, 234, 0.2);
-    }
-
-    .upload-icon {
-      width: 50px;
-      height: 50px;
-      margin: 0 auto 15px;
-      color: var(--accent-color);
-    }
-
-    .upload-text {
-      color: #666;
-      font-size: 1.1em;
-      font-weight: 500;
-    }
-
-    .btn-upload {
-      width: 100%;
-      padding: 15px;
-      background: var(--secondary-gradient);
-      color: white;
-      border: none;
-      border-radius: 10px;
-      font-size: 1.1em;
-      font-weight: 600;
-      cursor: pointer;
-      transition: all 0.3s ease;
-      box-shadow: var(--shadow);
-    }
-
-    .btn-upload:hover {
-      transform: translateY(-3px);
-      box-shadow: var(--shadow-lg);
-    }
-
-    .timer-section {
-      margin-bottom: 50px;
-      background: rgba(255, 255, 255, 0.95);
-      padding: 40px;
-      border-radius: 20px;
-      box-shadow: var(--shadow-lg);
-      text-align: center;
-    }
-
-    .timer-display {
-      font-size: 4em;
-      font-weight: 800;
-      background: var(--secondary-gradient);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-      margin: 20px 0;
-      font-family: 'Courier New', monospace;
-      animation: pulse 1s ease-in-out infinite;
-    }
-
-    @keyframes pulse {
-      0%, 100% { opacity: 1; }
-      50% { opacity: 0.7; }
-    }
-
-    .btn-timer {
-      padding: 15px 40px;
-      background: var(--primary-gradient);
-      color: white;
-      border: none;
-      border-radius: 25px;
-      font-size: 1.1em;
-      font-weight: 600;
-      cursor: pointer;
-      transition: all 0.3s ease;
-      box-shadow: var(--shadow);
-      margin: 15px 0;
-    }
-
-    .btn-timer:hover {
-      transform: translateY(-3px);
-      box-shadow: var(--shadow-lg);
-    }
-
-    .btn-timer.active {
-      background: var(--success-color);
-    }
-
-    .timer-desc {
-      color: #999;
-      font-style: italic;
-      margin-top: 15px;
-    }
-
-    .tracking-section {
-      margin-bottom: 50px;
-      background: rgba(255, 255, 255, 0.95);
-      padding: 40px;
-      border-radius: 20px;
-      box-shadow: var(--shadow-lg);
-    }
-
-    .stats-container {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-      gap: 20px;
-      margin-bottom: 40px;
-    }
-
-    .stat-card {
-      background: linear-gradient(135deg, rgba(255, 107, 157, 0.1), rgba(102, 126, 234, 0.1));
-      padding: 25px;
-      border-radius: 15px;
-      text-align: center;
-      transition: all 0.3s ease;
-      border: 2px solid transparent;
-    }
-
-    .stat-card:hover {
-      transform: translateY(-5px);
-      box-shadow: var(--shadow);
-      border-color: var(--accent-color);
-    }
-
-    .stat-number {
-      font-size: 2.5em;
-      font-weight: 800;
-      color: var(--accent-color);
-    }
-
-    .stat-label {
-      color: var(--text-dark);
-      font-weight: 600;
-      margin-top: 10px;
-    }
-
-    .stat-emoji {
-      font-size: 2em;
-      margin-top: 10px;
-    }
-
-    .seen-unseen-list {
-      background: var(--bg-light);
-      padding: 20px;
-      border-radius: 15px;
-    }
-
-    .seen-unseen-list h3 {
-      margin-bottom: 15px;
-      color: var(--text-dark);
-    }
-
-    .status-list {
-      list-style: none;
-    }
-
-    .status-item {
-      padding: 12px;
-      margin-bottom: 10px;
-      background: white;
-      border-left: 4px solid var(--accent-color);
-      border-radius: 5px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      transition: all 0.3s ease;
-    }
-
-    .status-item:hover {
-      box-shadow: var(--shadow);
-      transform: translateX(5px);
-    }
-
-    .status-item.seen {
-      border-left-color: var(--success-color);
-      background: rgba(46, 213, 115, 0.05);
-    }
-
-    .status-item.unseen {
-      border-left-color: var(--warning-color);
-      background: rgba(255, 165, 2, 0.05);
-    }
-
-    .action-section {
-      text-align: center;
-      margin: 40px 0;
-      display: flex;
-      gap: 15px;
-      justify-content: center;
-      flex-wrap: wrap;
-    }
-
-    .btn-secondary {
-      padding: 12px 30px;
-      background: rgba(255, 255, 255, 0.2);
-      color: white;
-      border: 2px solid white;
-      border-radius: 25px;
-      font-weight: 600;
-      cursor: pointer;
-      transition: all 0.3s ease;
-      backdrop-filter: blur(10px);
-    }
-
-    .btn-secondary:hover {
-      background: white;
-      color: var(--text-dark);
-      transform: translateY(-2px);
-      box-shadow: var(--shadow-lg);
-    }
-
-    .modal {
-      display: none;
-      position: fixed;
-      z-index: 1000;
-      left: 0;
-      top: 0;
-      width: 100%;
-      height: 100%;
-      background-color: rgba(0, 0, 0, 0.7);
-      backdrop-filter: blur(5px);
-      animation: fadeIn 0.3s ease-out;
-    }
-
-    .modal-content {
-      background-color: white;
-      margin: 5% auto;
-      padding: 30px;
-      border-radius: 20px;
-      max-width: 500px;
-      box-shadow: var(--shadow-lg);
-      animation: slideUp 0.3s ease-out;
-    }
-
-    .close-modal {
-      color: var(--accent-color);
-      float: right;
-      font-size: 2em;
-      font-weight: bold;
-      cursor: pointer;
-      transition: all 0.3s ease;
-    }
-
-    .close-modal:hover {
-      transform: rotate(90deg);
-    }
-
-    #modalImage {
-      width: 100%;
-      height: auto;
-      border-radius: 15px;
-      margin-bottom: 20px;
-      max-height: 400px;
-      object-fit: contain;
-    }
-
-    .modal-actions {
-      display: flex;
-      gap: 10px;
-      margin-top: 20px;
-      flex-wrap: wrap;
-    }
-
-    .btn-modal {
-      flex: 1;
-      padding: 12px;
-      background: var(--primary-gradient);
-      color: white;
-      border: none;
-      border-radius: 10px;
-      cursor: pointer;
-      font-weight: 600;
-      transition: all 0.3s ease;
-      min-width: 120px;
-    }
-
-    .btn-modal:hover {
-      transform: translateY(-2px);
-      box-shadow: var(--shadow);
-    }
-
-    .btn-modal-delete {
-      flex: 1;
-      padding: 12px;
-      background: #ff6b9d;
-      color: white;
-      border: none;
-      border-radius: 10px;
-      cursor: pointer;
-      font-weight: 600;
-      transition: all 0.3s ease;
-      min-width: 120px;
-    }
-
-    .btn-modal-delete:hover {
-      background: #ff4757;
-      transform: translateY(-2px);
-      box-shadow: var(--shadow);
-    }
-
-    .footer {
-      text-align: center;
-      padding: 30px;
-      color: white;
-      font-size: 1.1em;
-      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
-      margin-top: 50px;
-    }
-
-    @keyframes slideInDown {
-      from {
-        opacity: 0;
-        transform: translateY(-30px);
+    @keyframes glow{
+      from{
+        text-shadow:0 0 10px white;
       }
-      to {
-        opacity: 1;
-        transform: translateY(0);
+      to{
+        text-shadow:0 0 30px pink;
       }
     }
 
-    @keyframes slideUp {
-      from {
-        opacity: 0;
-        transform: translateY(30px);
+    .gallery{
+      margin-top:40px;
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+      gap:20px;
+    }
+
+    .photo-card{
+      background:white;
+      border-radius:20px;
+      overflow:hidden;
+      height:250px;
+      box-shadow:0 10px 25px rgba(0,0,0,0.2);
+      transition:0.3s;
+    }
+
+    .photo-card:hover{
+      transform:scale(1.05);
+    }
+
+    .photo-card img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+    }
+
+    .upload-section{
+      margin-top:40px;
+    }
+
+    .upload-btn{
+      padding:15px 30px;
+      border:none;
+      border-radius:30px;
+      background:#ff4081;
+      color:white;
+      font-size:1rem;
+      cursor:pointer;
+      transition:0.3s;
+    }
+
+    .upload-btn:hover{
+      background:#e91e63;
+      transform:scale(1.05);
+    }
+
+    input[type="file"]{
+      display:none;
+    }
+
+    .timer{
+      margin-top:40px;
+      font-size:4rem;
+      font-weight:bold;
+    }
+
+    .timer-btn{
+      margin-top:20px;
+      padding:12px 25px;
+      border:none;
+      border-radius:25px;
+      background:#00b894;
+      color:white;
+      font-size:1rem;
+      cursor:pointer;
+    }
+
+    .hearts{
+      position:fixed;
+      top:0;
+      left:0;
+      width:100%;
+      height:100%;
+      pointer-events:none;
+      overflow:hidden;
+      z-index:-1;
+    }
+
+    .heart{
+      position:absolute;
+      font-size:20px;
+      animation: float 5s linear infinite;
+    }
+
+    @keyframes float{
+      0%{
+        transform:translateY(100vh) scale(0);
+        opacity:0;
       }
-      to {
-        opacity: 1;
-        transform: translateY(0);
+
+      50%{
+        opacity:1;
+      }
+
+      100%{
+        transform:translateY(-100vh) scale(1.5);
+        opacity:0;
       }
     }
 
-    @keyframes fadeIn {
-      from {
-        opacity: 0;
-      }
-      to {
-        opacity: 1;
-      }
+    footer{
+      margin-top:50px;
+      padding-bottom:20px;
+      font-size:1.1rem;
     }
 
-    @media (max-width: 768px) {
-      .title {
-        font-size: 2.5em;
+    @media(max-width:768px){
+
+      .title{
+        font-size:2.5rem;
       }
-      .section-title {
-        font-size: 1.4em;
+
+      .subtitle{
+        font-size:1.2rem;
       }
-      .gallery-grid {
-        grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+
+      .timer{
+        font-size:3rem;
       }
-      .timer-display {
-        font-size: 3em;
-      }
-      .stats-container {
-        grid-template-columns: 1fr;
-      }
+
     }
 
-    @media (max-width: 480px) {
-      .title {
-        font-size: 2em;
-      }
-      .timer-display {
-        font-size: 2.5em;
-      }
-      .gallery-grid {
-        grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
-      }
-    }
   </style>
 </head>
+
 <body>
+
+  <!-- AUTOPLAY MUSIC -->
+  <audio id="bg-music" autoplay loop>
+    <source src="song.mp3" type="audio/mpeg">
+  </audio>
+
+  <div class="hearts" id="hearts"></div>
+
   <div class="container">
-    <header class="header">
-      <div class="header-content">
-        <h1 class="title">✨ Happy Birthday ✨</h1>
-        <p class="subtitle">A Special Gift Curated Just For You</p>
-        <div class="person-name-section">
-          <input 
-            type="text" 
-            id="personName" 
-            class="person-name-input" 
-            placeholder="Enter birthday person's name..."
-            value="Birthday Star"
-          >
-          <button class="btn-save-name">Save Name</button>
-        </div>
-      </div>
-    </header>
 
-    <main class="main-content">
-      <section class="gallery-section">
-        <h2 class="section-title">📸 Memory Gallery (7 Special Moments)</h2>
-        <div class="gallery-container">
-          <div class="gallery-grid" id="galleryGrid"></div>
-        </div>
+    <h1 class="title">🎉 Happy Birthday 🎉</h1>
 
-        <div class="upload-section">
-          <h3>Add Photos to Your Gallery</h3>
-          <div class="upload-area" id="uploadArea">
-            <div class="upload-icon">⬆️</div>
-            <p class="upload-text">Drag & drop your image here or click to select</p>
-            <input 
-              type="file" 
-              id="imageInput" 
-              accept="image/*" 
-              style="display: none;"
-            >
-          </div>
-          <button class="btn-upload" id="uploadBtn">Choose Image</button>
-        </div>
-      </section>
+    <p class="subtitle">
+      Wishing you happiness, love and beautiful memories 💖
+    </p>
 
-      <section class="timer-section">
-        <h2 class="section-title">⏱️ 7-Minute Magical Countdown</h2>
-        <div class="timer-display" id="timerDisplay">00:00</div>
-        <button class="btn-timer" id="timerBtn">Start 7-Minute Timer</button>
-        <p class="timer-desc">A special 7 minutes to reflect on precious moments</p>
-      </section>
+    <!-- IMAGE GALLERY -->
+    <div class="gallery" id="gallery"></div>
 
-      <section class="tracking-section">
-        <h2 class="section-title">👁️ Image Status Tracking</h2>
-        <div class="stats-container">
-          <div class="stat-card">
-            <div class="stat-number" id="seenCount">0</div>
-            <div class="stat-label">Seen</div>
-            <div class="stat-emoji">✅</div>
-          </div>
-          <div class="stat-card">
-            <div class="stat-number" id="unseenCount">0</div>
-            <div class="stat-label">Unseen</div>
-            <div class="stat-emoji">🔒</div>
-          </div>
-          <div class="stat-card">
-            <div class="stat-number" id="totalCount">0</div>
-            <div class="stat-label">Total</div>
-            <div class="stat-emoji">📊</div>
-          </div>
-        </div>
+    <!-- IMAGE UPLOAD -->
+    <div class="upload-section">
 
-        <div class="seen-unseen-list">
-          <h3>Image Status</h3>
-          <ul id="statusList" class="status-list"></ul>
-        </div>
-      </section>
+      <label class="upload-btn">
+        Upload Photos
+        <input type="file" id="imageInput" multiple accept="image/*">
+      </label>
 
-      <section class="action-section">
-        <button class="btn-secondary" id="resetBtn">Reset All</button>
-        <button class="btn-secondary" id="downloadBtn">Download Memories</button>
-      </section>
-    </main>
-
-    <footer class="footer">
-      <p>Made with 💖 - Every moment with you is special</p>
-    </footer>
-  </div>
-
-  <div class="modal" id="imageModal">
-    <div class="modal-content">
-      <span class="close-modal">&times;</span>
-      <img id="modalImage" src="" alt="Preview">
-      <div class="modal-actions">
-        <button class="btn-modal" id="markSeenBtn">Mark as Seen ✅</button>
-        <button class="btn-modal-delete" id="deleteBtn">Delete Image 🗑️</button>
-      </div>
     </div>
+
+    <!-- TIMER -->
+    <div class="timer" id="timer">
+      07:00
+    </div>
+
+    <button class="timer-btn" onclick="startTimer()">
+      Start 7 Minute Timer
+    </button>
+
+    <footer>
+      Made with 💖
+    </footer>
+
   </div>
 
   <script>
-    // Local Storage State
-    let greetingState = {
-      images: [],
-      seenDates: [],
-      personName: 'Birthday Star',
-      timerActive: false,
-      timerEndTime: null,
-      timerId: null
-    };
 
-    const STORAGE_KEY = 'birthdayGreeting';
+    // AUTO PLAY MUSIC
+    window.addEventListener('load', () => {
 
-    // DOM Elements
-    const galleryGrid = document.getElementById('galleryGrid');
-    const imageInput = document.getElementById('imageInput');
-    const uploadArea = document.getElementById('uploadArea');
-    const uploadBtn = document.getElementById('uploadBtn');
-    const timerDisplay = document.getElementById('timerDisplay');
-    const timerBtn = document.getElementById('timerBtn');
-    const personNameInput = document.getElementById('personName');
-    const saveNameBtn = document.querySelector('.btn-save-name');
-    const resetBtn = document.getElementById('resetBtn');
-    const downloadBtn = document.getElementById('downloadBtn');
-    const modal = document.getElementById('imageModal');
-    const closeModal = document.querySelector('.close-modal');
-    const markSeenBtn = document.getElementById('markSeenBtn');
-    const deleteBtn = document.getElementById('deleteBtn');
-    const seenCount = document.getElementById('seenCount');
-    const unseenCount = document.getElementById('unseenCount');
-    const totalCount = document.getElementById('totalCount');
-    const statusList = document.getElementById('statusList');
+      const audio = document.getElementById('bg-music');
 
-    let selectedImageId = null;
+      audio.play().catch(() => {
 
-    // Initialize
-    document.addEventListener('DOMContentLoaded', () => {
-      loadState();
-      initializeGallery();
-      setupEventListeners();
-      setupDragAndDrop();
-      updateGalleryDisplay();
-      updateStats();
+        document.body.addEventListener('click', () => {
+          audio.play();
+        }, { once:true });
+
+      });
+
     });
 
-    // Save State to LocalStorage
-    function saveState() {
-      localStorage.setItem(STORAGE_KEY, JSON.stringify(greetingState));
-    }
+    // IMAGE GALLERY
+    const imageInput = document.getElementById('imageInput');
+    const gallery = document.getElementById('gallery');
 
-    // Load State from LocalStorage
-    function loadState() {
-      const saved = localStorage.getItem(STORAGE_KEY);
-      if (saved) {
-        greetingState = JSON.parse(saved);
-        personNameInput.value = greetingState.personName;
-      }
-    }
+    imageInput.addEventListener('change', function(){
 
-    // Setup Event Listeners
-    function setupEventListeners() {
-      uploadBtn.addEventListener('click', () => imageInput.click());
-      imageInput.addEventListener('change', handleImageUpload);
-      
-      timerBtn.addEventListener('click', handleTimerToggle);
-      
-      saveNameBtn.addEventListener('click', savePersonName);
-      personNameInput.addEventListener('keypress', (e) => {
-        if (e.key === 'Enter') savePersonName();
-      });
+      const files = this.files;
 
-      resetBtn.addEventListener('click', resetAll);
-      downloadBtn.addEventListener('click', downloadMemories);
+      for(let i=0; i<files.length; i++){
 
-      closeModal.addEventListener('click', closeImageModal);
-      window.addEventListener('click', (e) => {
-        if (e.target === modal) closeImageModal();
-      });
+        const reader = new FileReader();
 
-      markSeenBtn.addEventListener('click', markImageAsSeen);
-      deleteBtn.addEventListener('click', deleteImage);
-    }
+        reader.onload = function(e){
 
-    // Drag and Drop
-    function setupDragAndDrop() {
-      uploadArea.addEventListener('dragover', (e) => {
-        e.preventDefault();
-        uploadArea.classList.add('dragover');
-      });
+          const card = document.createElement('div');
 
-      uploadArea.addEventListener('dragleave', () => {
-        uploadArea.classList.remove('dragover');
-      });
+          card.className = 'photo-card';
 
-      uploadArea.addEventListener('drop', (e) => {
-        e.preventDefault();
-        uploadArea.classList.remove('dragover');
-        
-        const files = e.dataTransfer.files;
-        if (files.length > 0) {
-          imageInput.files = files;
-          handleImageUpload();
-        }
-      });
-    }
-
-    // Initialize Gallery
-    function initializeGallery() {
-      galleryGrid.innerHTML = '';
-      
-      for (let i = 0; i < 7; i++) {
-        const slot = document.createElement('div');
-        slot.className = 'image-slot';
-        slot.id = `slot-${i}`;
-        slot.innerHTML = `<span class="slot-number">#${i + 1}</span>`;
-        slot.addEventListener('click', () => openImageSlot(i));
-        
-        galleryGrid.appendChild(slot);
-      }
-    }
-
-    // Handle Image Upload
-    function handleImageUpload() {
-      const files = imageInput.files;
-      
-      if (files.length === 0) return;
-
-      if (greetingState.images.length >= 7) {
-        alert('Maximum 7 images allowed! Please remove an image first.');
-        return;
-      }
-
-      const reader = new FileReader();
-      reader.onload = (e) => {
-        greetingState.images.push({
-          id: greetingState.images.length,
-          data: e.target.result
-        });
-        greetingState.seenDates.push(null);
-        
-        updateGalleryDisplay();
-        updateStats();
-        saveState();
-        showNotification('Image uploaded successfully! 🎉', 'success');
-        imageInput.value = '';
-      };
-      reader.readAsDataURL(files[0]);
-    }
-
-    // Update Gallery Display
-    function updateGalleryDisplay() {
-      for (let i = 0; i < 7; i++) {
-        const slot = document.getElementById(`slot-${i}`);
-        const image = greetingState.images[i];
-
-        if (image) {
-          slot.innerHTML = `<img src="${image.data}" alt="Memory ${i + 1}">`;
-          slot.classList.add('filled');
-
-          const badge = document.createElement('div');
-          badge.className = 'image-status-badge';
-          
-          if (greetingState.seenDates[i]) {
-            badge.classList.add('seen');
-            badge.textContent = '✅';
-          } else {
-            badge.classList.add('unseen');
-            badge.textContent = '🔒';
-          }
-          
-          slot.appendChild(badge);
-        } else {
-          slot.innerHTML = `<span class="slot-number">#${i + 1}</span>`;
-          slot.classList.remove('filled');
-        }
-      }
-    }
-
-    // Open Image Modal
-    function openImageSlot(index) {
-      if (!greetingState.images[index]) return;
-
-      selectedImageId = index;
-      const modalImage = document.getElementById('modalImage');
-      modalImage.src = greetingState.images[index].data;
-
-      if (greetingState.seenDates[index]) {
-        markSeenBtn.textContent = 'Already Marked as Seen ✅';
-        markSeenBtn.disabled = true;
-      } else {
-        markSeenBtn.textContent = 'Mark as Seen ✅';
-        markSeenBtn.disabled = false;
-      }
-
-      modal.style.display = 'block';
-    }
-
-    // Close Image Modal
-    function closeImageModal() {
-      modal.style.display = 'none';
-      selectedImageId = null;
-    }
-
-    // Mark Image as Seen
-    function markImageAsSeen() {
-      if (selectedImageId === null) return;
-
-      greetingState.seenDates[selectedImageId] = new Date().toISOString();
-      updateGalleryDisplay();
-      updateStats();
-      saveState();
-      showNotification('Image marked as seen! 🎊', 'success');
-      closeImageModal();
-    }
-
-    // Delete Image
-    function deleteImage() {
-      if (selectedImageId === null) return;
-
-      if (!confirm('Are you sure you want to delete this image?')) return;
-
-      greetingState.images.splice(selectedImageId, 1);
-      greetingState.seenDates.splice(selectedImageId, 1);
-
-      updateGalleryDisplay();
-      updateStats();
-      saveState();
-      showNotification('Image deleted! 🗑️', 'info');
-      closeImageModal();
-    }
-
-    // Timer Functions
-    function handleTimerToggle() {
-      if (greetingState.timerActive) {
-        clearInterval(greetingState.timerId);
-        greetingState.timerActive = false;
-        timerBtn.classList.remove('active');
-        timerBtn.textContent = 'Start 7-Minute Timer';
-        timerDisplay.textContent = '00:00';
-      } else {
-        const timerDuration = 7 * 60 * 1000;
-        greetingState.timerActive = true;
-        greetingState.timerEndTime = new Date(Date.now() + timerDuration);
-        
-        timerBtn.classList.add('active');
-        timerBtn.textContent = 'Stop Timer ⏹️';
-
-        updateTimerDisplay();
-        greetingState.timerId = setInterval(updateTimerDisplay, 1000);
-        saveState();
-      }
-    }
-
-    function updateTimerDisplay() {
-      if (greetingState.timerActive && greetingState.timerEndTime) {
-        const remainingTime = greetingState.timerEndTime - Date.now();
-
-        if (remainingTime > 0) {
-          const minutes = Math.floor(remainingTime / 60000);
-          const seconds = Math.floor((remainingTime % 60000) / 1000);
-          timerDisplay.textContent = `${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
-        } else {
-          greetingState.timerActive = false;
-          clearInterval(greetingState.timerId);
-          timerBtn.classList.remove('active');
-          timerBtn.textContent = 'Start 7-Minute Timer';
-          timerDisplay.textContent = '00:00';
-          showNotification('Time\'s up! 🎁', 'success');
-          saveState();
-        }
-      }
-    }
-
-    // Update Stats
-    function updateStats() {
-      const seen = greetingState.seenDates.filter(d => d).length;
-      const unseen = greetingState.images.length - seen;
-      const total = greetingState.images.length;
-
-      seenCount.textContent = seen;
-      unseenCount.textContent = unseen;
-      totalCount.textContent = total;
-
-      statusList.innerHTML = '';
-      greetingState.images.forEach((img, index) => {
-        const item = document.createElement('li');
-        item.className = 'status-item';
-        
-        const isSeen = greetingState.seenDates[index];
-        if (isSeen) {
-          item.classList.add('seen');
-          const seeDate = new Date(isSeen).toLocaleString();
-          item.innerHTML = `
-            <span>Photo #${index + 1}</span>
-            <span>✅ Seen on ${seeDate}</span>
+          card.innerHTML = `
+            <img src="${e.target.result}">
           `;
-        } else {
-          item.classList.add('unseen');
-          item.innerHTML = `
-            <span>Photo #${index + 1}</span>
-            <span>🔒 Not seen yet</span>
-          `;
+
+          gallery.appendChild(card);
+
         }
-        
-        statusList.appendChild(item);
-      });
+
+        reader.readAsDataURL(files[i]);
+
+      }
+
+    });
+
+    // TIMER
+    let duration = 420;
+    let timerStarted = false;
+
+    function startTimer(){
+
+      if(timerStarted) return;
+
+      timerStarted = true;
+
+      const timer = document.getElementById('timer');
+
+      const interval = setInterval(() => {
+
+        let minutes = Math.floor(duration / 60);
+        let seconds = duration % 60;
+
+        timer.innerHTML =
+          String(minutes).padStart(2,'0') +
+          ":" +
+          String(seconds).padStart(2,'0');
+
+        duration--;
+
+        if(duration < 0){
+
+          clearInterval(interval);
+
+          timer.innerHTML = "🎂 Time's Up 🎂";
+
+          alert("Happy Birthday 🎉");
+
+        }
+
+      },1000);
+
     }
 
-    // Save Person Name
-    function savePersonName() {
-      const name = personNameInput.value.trim() || 'Birthday Star';
-      greetingState.personName = name;
-      saveState();
-      showNotification(`Hello ${name}! 🎉`, 'success');
-    }
+    // FLOATING HEARTS
+    const heartsContainer = document.getElementById('hearts');
 
-    // Reset All
-    function resetAll() {
-      if (!confirm('Are you sure you want to reset everything? This cannot be undone!')) return;
-      localStorage.removeItem(STORAGE_KEY);
-      location.reload();
-    }
+    function createHeart(){
 
-    // Download Memories
-    function downloadMemories() {
-      const now = new Date();
-      const timestamp = now.toLocaleString();
+      const heart = document.createElement('div');
 
-      const report = {
-        personName: greetingState.personName,
-        timestamp,
-        totalImages: greetingState.images.length,
-        seenImages: greetingState.seenDates.filter(d => d).length,
-        unseenImages: greetingState.images.length - greetingState.seenDates.filter(d => d).length,
-        imageDetails: greetingState.images.map((img, index) => ({
-          photoNumber: index + 1,
-          seenOn: greetingState.seenDates[index] || 'Not viewed',
-          status: greetingState.seenDates[index] ? 'Seen ✅' : 'Unseen 🔒'
-        }))
-      };
+      heart.className = 'heart';
 
-      const dataStr = JSON.stringify(report, null, 2);
-      const dataBlob = new Blob([dataStr], { type: 'application/json' });
-      const url = URL.createObjectURL(dataBlob);
-      const link = document.createElement('a');
-      link.href = url;
-      link.download = `birthday-memories-${now.getTime()}.json`;
-      document.body.appendChild(link);
-      link.click();
-      document.body.removeChild(link);
-      URL.revokeObjectURL(url);
+      heart.innerHTML = '💖';
 
-      showNotification('Memories downloaded! 📥', 'success');
-    }
+      heart.style.left = Math.random() * 100 + 'vw';
 
-    // Notification Helper
-    function showNotification(message, type = 'info') {
-      const notification = document.createElement('div');
-      notification.style.cssText = `
-        position: fixed;
-        top: 20px;
-        right: 20px;
-        padding: 15px 25px;
-        background: ${type === 'success' ? '#2ed573' : type === 'error' ? '#ff4757' : '#667eea'};
-        color: white;
-        border-radius: 10px;
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-        z-index: 10000;
-        animation: slideInDown 0.3s ease-out;
-        font-weight: 600;
-      `;
-      notification.textContent = message;
-      document.body.appendChild(notification);
+      heart.style.fontSize =
+        (Math.random() * 20 + 15) + 'px';
+
+      heart.style.animationDuration =
+        (Math.random() * 3 + 3) + 's';
+
+      heartsContainer.appendChild(heart);
 
       setTimeout(() => {
-        notification.style.animation = 'slideUp 0.3s ease-out';
-        setTimeout(() => {
-          document.body.removeChild(notification);
-        }, 300);
-      }, 3000);
+        heart.remove();
+      },5000);
+
     }
 
-    // Auto-refresh timer
-    setInterval(() => {
-      if (greetingState.timerActive) {
-        updateTimerDisplay();
-      }
-    }, 1000);
-  <script src="script.js"></script>
-</body>
-</html>
+    setInterval(createHeart,300);
+
+  </script>
+
 </body>
 </html>
